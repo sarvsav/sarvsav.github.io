@@ -7,6 +7,8 @@ group :jekyll_plugins do
   gem 'jekyll-theme-profile'
 end
 
+gem 'jekyll-relative-links'
+
 group :development do
     gem 'dotenv', '~> 3.1'
     gem 'html-proofer'
