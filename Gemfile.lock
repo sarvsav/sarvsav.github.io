@@ -90,6 +90,8 @@ GEM
     jekyll-octicons (19.8.0)
       jekyll (>= 3.6, < 5.0)
       octicons (= 19.8.0)
+    jekyll-relative-links (0.7.0)
+      jekyll (>= 3.3, < 5.0)
     jekyll-sass-converter (3.0.0)
       sass-embedded (~> 1.54)
     jekyll-seo-tag (2.8.0)
@@ -175,6 +177,7 @@ DEPENDENCIES
   dotenv (~> 3.1)
   html-proofer
   jekyll
+  jekyll-relative-links
   jekyll-theme-profile
   webrick (~> 1.8)
 
