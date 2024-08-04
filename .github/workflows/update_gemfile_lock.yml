@@ -1,0 +1,38 @@
+name: Update Gemfile.lock
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  update-gemfile-lock:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 3.2.2
+
+    - name: Install dependencies
+      run: |
+        bundle install
+
+    - name: Check for changes in Gemfile.lock
+      run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+        git add Gemfile.lock
+        if git diff --cached --exit-code; then
+          echo "No changes to commit"
+        else
+          git commit -m "Update Gemfile.lock via GitHub Actions"
+          git push
+        fi
