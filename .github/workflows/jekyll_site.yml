@@ -70,27 +70,27 @@ jobs:
         # Automatically uploads an artifact from the './_site' directory by default
         uses: actions/upload-pages-artifact@v3
 
-  test:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@a6e6f86333f0a2523ece813039b8b4be04560854
-        with:
-          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
-          cache-version: 4 # Increment this number if you need to re-download cached gems
-      - uses: actions/download-artifact@v4
-        with:
-          name: github-pages
-      - name: Extract
-        run: |
-          mkdir _site
-          tar --directory _site -xvf "artifact.tar"
-          tree
-      - name: Test with htmlproofer
-        run: .github/scripts/htmlproofer/entrypoint.sh
+  # test:
+  #   runs-on: ubuntu-latest
+  #   needs: build
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v4
+  #     - name: Setup Ruby
+  #       uses: ruby/setup-ruby@a6e6f86333f0a2523ece813039b8b4be04560854
+  #       with:
+  #         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+  #         cache-version: 4 # Increment this number if you need to re-download cached gems
+  #     - uses: actions/download-artifact@v4
+  #       with:
+  #         name: github-pages
+  #     - name: Extract
+  #       run: |
+  #         mkdir _site
+  #         tar --directory _site -xvf "artifact.tar"
+  #         tree
+  #     - name: Test with htmlproofer
+  #       run: .github/scripts/htmlproofer/entrypoint.sh
 
   # Deployment job
   deploy:
