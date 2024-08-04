@@ -1,5 +1,5 @@
 # ######## Jekyll Site Settings ##########
-theme: jekyll-theme-profile
+remote_theme: jekyll-theme-profile
 title: Sarvsav Profile
 description: My personal blog
 image: /media/appbar-preview.png
