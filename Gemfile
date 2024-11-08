@@ -12,6 +12,6 @@ gem 'jekyll-relative-links'
 group :development do
     gem 'dotenv', '~> 3.1'
     gem 'html-proofer'
-    gem "webrick", "~> 1.8"
+    gem "webrick", "~> 1.9"
     # gem 'jekyll-theme-profile', :git => 'https://github.com/athackst/jekyll-theme-profile.git'
 end
